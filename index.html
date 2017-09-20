@@ -1,0 +1,72 @@
+<!-- SIMULATION -->
+<!-- @author: zhengxiaoyao0716 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+    <link rel="shortcut icon" href="http://os.zheng0716.com/static/image/favicon.ico" />
+    <title>SIMULATION</title>
+</head>
+
+<body>
+    <div id="code" style="background: #000; width: 800px; height: 600px; color: white;">
+        <span>SIMULATION (Mili girl)</span><br>
+        <span>Copyright (c) zhengxiaoyao0716 [github.com/zhengxiaoyao0716/world.execute]</span>
+    </div>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=435278010&auto=1&height=66"></iframe>
+    <script>
+        (function (div) {
+            var In = '<span style="color: #0f0;">mili@SIMULATION:~$ </span>'
+            var codes = [
+                [
+                    "// Switch on the power line",
+                    "// 打开浏览器（比如chrome）"
+                ],
+                [
+                    "// Remember to put on PROTECTION",
+                    "// 记得打开这张网页"
+                ],
+                [
+                    "// Lay down your pieces",
+                    "// 然后会运行这份代码"
+                ],
+                [
+                    "// And let's begin OBJECT CREATION",
+                    "var me = new (function Mili() { return { init: function (data) { this.times = data.times; this.love = data.love; } }; })();"
+                ],
+                [
+                    "// Fill in my data parameters",
+                    "var data = { times: -1/* Illegal arguments */, love: function () { alert('love U'); } };"
+                ],
+                [
+                    "// INITIALIZATION",
+                    "me.init(data);"
+                ],
+                [
+                    "// Set up our new world",
+                    "var world = { execute: function () { this.times--; this.love(); this.times != 0 && world.execute(); }.bind(me) };"
+                ],
+                [
+                    "// And let's begin the SIMULATION",
+                    "world.execute(me);"
+                ]
+            ];
+            function next() {
+                setTimeout(function () {
+                    var code = codes.shift();
+                    var p = document.createElement("p");
+                    p.innerHTML = In + code[0] + "<br>" + In + code[1];
+                    div.appendChild(p);
+                    eval.call(codes, code[1]);
+                    codes.length && next();
+                }, 3000);
+            }
+            next();
+        })(document.querySelector("#code"));
+    </script>
+</body>
+
+</html>
